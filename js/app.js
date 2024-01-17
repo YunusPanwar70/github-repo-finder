@@ -50,6 +50,15 @@ const getRepos = async(username) => {
     )
 }
 
+// let submit = document.getElementById("submit");
+// submit.addEventListener("submit", function() {
+//     if (searchBox.value != "") {
+//         getUser(searchBox.value);
+//         searchBox.value = ""
+//     }
+//     return false;
+// })
+
 const formSubmit = () => {
     if (searchBox.value != "") {
         getUser(searchBox.value);
