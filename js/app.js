@@ -1,7 +1,7 @@
 const APIURL = "https://api.github.com/users/";
 const main = document.querySelector("#main");
 const searchBox = document.querySelector("#search")
-const getUser = async(username) => {
+const getUser = async (username) => {
     const response = await fetch(APIURL + username);
     const data = await response.json()
     const card = `
@@ -33,10 +33,13 @@ const getUser = async(username) => {
 getUser("YunusPanwar70");
 
 
-const getRepos = async(username) => {
+const getRepos = async (username) => {
     const repos = document.querySelector("#repos")
     const response = await fetch(APIURL + username + "/repos")
     const data = await response.json();
+    if (!Array.isArray(data)) {
+        return
+    }
     data.forEach(
         (item) => {
 
@@ -70,7 +73,7 @@ const formSubmit = () => {
 
 searchBox.addEventListener(
     "focusout",
-    function() {
+    function () {
         formSubmit()
     }
 )
